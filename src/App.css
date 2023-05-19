@@ -52,7 +52,9 @@
 }
 .App{
  height: 100vh;
- background: linear-gradient(rgb(61, 152, 193), rgb(201, 76, 42));
+ background: linear-gradient(rgb(61, 152, 193), rgb(232, 125, 175));
+ /* margin-bottom: 100px; */
+
 
 }
 .student{
@@ -72,7 +74,8 @@
 table{
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
-  width: 100%;
+  width: 90%;
+  margin: auto;
   border-radius: 10px;
 }
 tr{
@@ -90,4 +93,69 @@ th {
   text-align: center;
   /* background-color:blue; */
   /* color: white; */
+}
+.addStudentContainer{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+.addStudent{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  
+}
+.addStudent input{
+  width: 30%;
+  height: 30px;
+  margin: 30px;
+  padding: 10px;
+  position: relative;
+  overflow: visible ;
+}
+
+.addStudent ::placeholder{
+  transition: 1s all ease-in-out;
+
+}
+
+.addStudent input:hover::placeholder{
+  position: absolute;
+  top: 4px;
+  padding-bottom: 5px;
+  left: 10px;
+  z-index: 10;
+}
+
+.btn{
+  width: 90%;
+  display: flex;
+  justify-content: end;
+  /* padding-right: 230px; */
+}
+.btn button{
+  width: 180px;
+  margin: 10px;
+  height: 40px;
+  padding: 10px;
+  border-radius: 20px;
+}
+.btn button:hover{
+  background-color: gray;
+}
+@media (max-width:600px) {
+  table{
+    width: 100%;
+  }
+  .addStudent input{
+    margin: 0px;
+    width: 85%;
+    margin-top: 10px;
+  }
+  .btn{
+width: 97%;
+margin: auto;
+margin-top: 10px;
+  }
+
 }

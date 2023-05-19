@@ -1,15 +1,17 @@
-import React from "react";
-import Nav from "./Nav";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import store from "./StoreComponent";
+import { Link,useNavigate } from "react-router-dom";
 
 
 function Student() {
+  const ContextData=useContext(store);
+  const Navi=useNavigate();
   return (
     <>
-    <Nav/>
+   
     <div className="student">
      <h1>Student Details</h1>
-     <button>add new Student </button>
+     <button onClick={() => {Navi('/newstudent')}}>add new Student </button>
      <table >
       <thead>
         <tr>
@@ -21,41 +23,18 @@ function Student() {
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Rushi</td>
-          <td>21</td>
-          <td>MERN</td>
-          <td>E21</td>
-          <td><Link>Edit</Link></td>
-        </tr>
-        <tr>
-          <td>Rushi</td>
-          <td>21</td>
-          <td>MERN</td>
-          <td>E21</td>
-          <td><Link>Edit</Link></td>
-        </tr>
-        <tr>
-          <td>Rushi</td>
-          <td>21</td>
-          <td>MERN</td>
-          <td>E21</td>
-          <td><Link>Edit</Link></td>
-        </tr>
-        <tr>
-          <td>Rushi</td>
-          <td>21</td>
-          <td>MERN</td>
-          <td>E21</td>
-          <td><Link>Edit</Link></td>
-        </tr>
-        <tr>
-          <td>Rushi</td>
-          <td>21</td>
-          <td>MERN</td>
-          <td>E21</td>
-          <td><Link>Edit</Link></td>
-        </tr>
+      {ContextData.entries.map((item, index) => {
+          return (
+            <tr key={index}>
+              <td>{item.name}</td>
+              <td>{item.Age}</td>
+              <td>{item.Course}</td>
+              <td>{item.Batch}</td>
+              <td> <Link to='/editstudent' state={{data: index}} >Edit</Link> </td>
+            </tr>
+          )
+        })}
+         
       </tbody>
      </table>
     </div>
